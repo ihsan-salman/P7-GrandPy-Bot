@@ -2,24 +2,28 @@
 <html>
 <head>
 	<title>GrandPy-Bot.com</title>
-	<link href="static/css/index.css" rel="stylesheet" type="text/css">
+	<link href="{{ url_for('static', filename='css/index.css') }}" rel="stylesheet" type="text/css">
+	<script src="{{ url_for('static', filename='js/script.js')}}"></script>
 	<header>
-		<h1>Demandez à GrandPY-Bot</h1>
-		<img src="static/images/gpbot.png">
+		<h1><img src="static/images/gpbot.png" height="150 px">Demandez à GrandPY-Bot</h1>
+		<p>
+			Grand-py va vous demander ce que vous voulez savoir</br>
+			À vous de lui donner les informations nécessaires!</br>
+		</p>
 	</header>
 </head>
 <body>
-	<script>
-		let d = new Date():
-		alert("today's date is " + d);
-	</script>
+	<textarea id="text" name="text" rows="20" cols="50">
+		
+	</textarea>
 </body>
 <footer>
-	<h2>Comment discuter avec GrandPy-Bot</h2>
-	<p>
-		Grand-py va vous demander ce que vous voulez savoir</br>
-		À vous de lui donner les informations nécessaires!</br>
-
-	</p>
+	<h2>Contact</h2>
+	<ul>
+		<li>Nom: Salman Ihsan</li>
+		<li><a href="https://github.com/ihsan-salman">github</a></li>
+		<li>Adresse-mail: <a href="mailto:ihsan.salmantr@gmail.com">ihsan.salmantr@gmail.com</a></li>
+		<li><a href="https://twitter.com/alp_sahih">Twitter</a></li>
+	</ul>
 </footer>
 </html>
