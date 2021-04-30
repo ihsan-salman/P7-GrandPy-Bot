@@ -3,7 +3,6 @@
 <head>
 	<title>GrandPy-Bot.com</title>
 	<link href="{{ url_for('static', filename='css/index.css') }}" rel="stylesheet" type="text/css">
-	<script src="{{ url_for('static', filename='js/script.js')}}"></script>
 	<header>
 		<h1><img src="static/images/gpbot.png" height="150 px">Demandez à GrandPY-Bot</h1>
 		<p>
@@ -13,9 +12,13 @@
 	</header>
 </head>
 <body>
-	<textarea id="text" name="text" rows="20" cols="50">
-		
+	<textarea id="text_output">
 	</textarea>
+	<div>
+		<input type="text" id="text_input" placeholder="Votre Question" size="50">
+		<button id="button"></button>
+	</div>
+	<script src="{{ url_for('static', filename='js/script.js')}}"></script>
 </body>
 <footer>
 	<h2>Contact</h2>
