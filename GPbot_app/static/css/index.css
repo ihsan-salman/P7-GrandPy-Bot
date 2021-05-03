@@ -63,3 +63,10 @@ textarea
 {
 	margin-left: 100px;
 }
+
+button
+{
+	height: 20px;
+	width: 40px;
+	margin-top: 5px;
+}
