@@ -1,9 +1,9 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
 @app.route('/')
-@app.route('/index/')
+@app.route('/index/', methods=['GET', 'POST'])
 def index():
     return render_template("index.html")
 
@@ -14,3 +14,4 @@ def index():
 app.config.from_object('config')
 
 app.config['SECRET_KEY']
+

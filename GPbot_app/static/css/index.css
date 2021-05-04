@@ -7,16 +7,24 @@ body
 	list-style:none;
 	text-decoration:none;
 	font-family:'Josefin Sans', sans-serif;
-	background-color: #939393;
+	background-color: black;
 	width:auto;
-	
+	background: linear-gradient(to right, black, #362d2d);
 }
 
 header 
 {
-	background-color: #0056a1;
+	background-color: #0091ff;
 	margin-left: 5px;
 	margin-right: 5px;
+	margin-top: -20px;
+	margin-bottom: 20px;
+	border-radius: 30px;
+}
+
+#top_message 
+{
+	background-color:  #00cc00;
 }
 
 h1 
@@ -37,7 +45,7 @@ h2
 
 p
 {
-	margin-left: 5px;
+	margin-left: 20px;
 	color: white;
 }
 

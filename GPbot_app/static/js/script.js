@@ -1,4 +1,7 @@
 
+let message = document.createElement('p');
+message.id = "text_output";
+document.getElementById('discussion').appendChild(message);
 
 
 let button = document.getElementById('button')

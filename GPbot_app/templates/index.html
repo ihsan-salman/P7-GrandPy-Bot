@@ -4,20 +4,21 @@
 	<title>GrandPy-Bot.com</title>
 	<link href="{{ url_for('static', filename='css/index.css') }}" rel="stylesheet" type="text/css">
 	<header>
-		<h1><img src="static/images/gpbot.png" height="150 px">Demandez à GrandPY-Bot</h1>
-		<p>
+		<div class="top">
+			<h1><img src="static/images/gpbot.png" height="150 px">Demandez à GrandPY-Bot</h1>
+		</div>
+		<p id="top_message">
 			Grand-py va vous demander ce que vous voulez savoir</br>
 			À vous de lui donner les informations nécessaires!</br>
 		</p>
 	</header>
 </head>
 <body>
-	<p id="text_output">
-	</p>
-	<div>
-		<input type="text" id="text_input" placeholder="Votre Question" size="50">
-		<button id="button" value="Entrer"></button>
+	<div id="discussion">
+		
 	</div>
+		<input type="text" id="text_input" placeholder="Votre Question" size="50">
+		<button id="button"></button>
 	<script src="{{ url_for('static', filename='js/script.js')}}"></script>
 </body>
 <footer>
