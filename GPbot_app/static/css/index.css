@@ -7,40 +7,51 @@ body
 	list-style:none;
 	text-decoration:none;
 	font-family:'Josefin Sans', sans-serif;
-	background-color: black;
+	background-color: #212121;
 	width:auto;
-	background: linear-gradient(to right, black, #362d2d);
 }
 
 header 
 {
-	background-color: #0091ff;
+	background-color: #24bf1f;
 	margin-left: 5px;
 	margin-right: 5px;
 	margin-top: -20px;
 	margin-bottom: 20px;
 	border-radius: 30px;
+	width: 70%;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 #top_message 
 {
-	background-color:  #00cc00;
+	font-style: strong;	
+}
+
+#discussion
+{
+	border: solid;
+	width: 70%;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 h1 
 { 
-	color: #111; 
+	color: white; 
 	font-family: 'Helvetica Neue', sans-serif; 
 	font-size: 40px; 
 	font-weight: bold; 
 	letter-spacing: -1px; 
 	line-height: 1; 
-	text-align: center; 
+	text-align: center;
 }
 
 h2 
 {
 	color: white;
+	margin-left: 5px;
 }
 
 p
@@ -51,10 +62,15 @@ p
 
 footer
 {
-	background-color: #2d2d2d;
+	margin-top: 50px;
+	margin-left: 20px;
 	color: white;
+	background-color: black;
 	margin-left: 5px;
 	margin-right: 5px;
+	border: solid;
+	width: 40%;
+
 }
 
 a
@@ -77,4 +93,16 @@ button
 	height: 20px;
 	width: 40px;
 	margin-top: 5px;
+}
+
+li
+{
+	list-style-type: none;
+	display: inline;
+	padding: 10px;
+}
+
+#name
+{
+	margin-left: 20px;
 }
