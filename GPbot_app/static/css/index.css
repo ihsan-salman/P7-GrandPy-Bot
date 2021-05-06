@@ -26,15 +26,18 @@ header
 
 #top_message 
 {
-	font-style: strong;	
+	color: white;
+	font-family: 'Ubuntu', serif;
+	font-size: 20px; 
 }
 
 #discussion
 {
 	border: solid;
-	width: 70%;
-	margin-left: auto;
+	width: 60%;
+	margin-left: 100px;
 	margin-right: auto;
+	background-color: white;
 }
 
 h1 
@@ -55,9 +58,10 @@ h2
 }
 
 p
-{
-	margin-left: 20px;
-	color: white;
+{	
+	font-family: 'Ubuntu', serif;
+	margin-left: 10px;
+	color: black;
 }
 
 footer
@@ -105,4 +109,36 @@ li
 #name
 {
 	margin-left: 20px;
+	color: white;
+}
+
+#button
+{
+	background-color: black;
+}
+
+#text_output
+{
+	background-color: #0077ff;
+	text-align: right;
+	margin-top: -7px;
+	margin-right: 10px;
+	border-radius: 15px;
+	margin-left: 300px;
+}
+
+#answer
+{
+	background-color: #e6e6e6;
+	color: black;
+	display: inline-block;
+	padding: 3px;
+	border-radius: 15px;
+	width: 300px
+}
+
+#text_input
+{
+	margin-top: 10px;
+	margin-left: 100px;
 }
