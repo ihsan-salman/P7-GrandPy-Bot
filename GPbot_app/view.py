@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 
 app = Flask(__name__)
 
@@ -6,6 +6,9 @@ app = Flask(__name__)
 @app.route('/index/', methods=['GET', 'POST'])
 def index():
     return render_template("index.html")
+    return jsonify({
+    	"name": "ihsan"
+    	})
 
 #if __name__ == "__main__":
 #   app.run()

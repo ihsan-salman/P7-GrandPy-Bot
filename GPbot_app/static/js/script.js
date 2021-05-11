@@ -26,5 +26,5 @@ let json = {
 }
 
 fetch(myRequest).then(function(response){
-  console.log(response.json());
+  console.log("");
 });
