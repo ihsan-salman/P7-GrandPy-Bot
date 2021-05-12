@@ -19,8 +19,10 @@
 	<div id="discussion">
 		<p id="answer">Lorem</i></p>
 	</div>
-		<input type="text" id="text_input" name="text_input" placeholder="Votre Question" size="50">
-		<button id="button" value="valider"></button>
+		<form action="javascript:void(0);" method="post">
+			<input type="text" id="text_input" name="text_input" placeholder="Votre Question" size="50">
+			<button id="button" value="valider"></button>
+		</form>
 	<script src="{{ url_for('static', filename='js/script.js')}}"></script>
 </body>
 <footer>
