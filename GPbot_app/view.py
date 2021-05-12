@@ -6,7 +6,7 @@ app = Flask(__name__)
 def index():
 	return render_template("index.html")
 	if request.method == 'GET':
-		print('ihsan')
+		print(request.form['text_output'])
 
 
 
