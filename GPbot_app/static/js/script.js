@@ -12,12 +12,11 @@ button.addEventListener("click", () =>{
   let text_output = document.getElementById('text_output');
   text_output.innerText = text_input.value;
   text_input.value = '';
+  let init = {method: 'POST'}
+  let request = fetch('/', init);
+  request
+    .then(function(response){
+      console.log(response);
+    });
   event.preventDefault();
-  const monInit = { 
-    method: 'GET',
-    
-  };
-  fetch('/', monInit)
-      .then(function (response) {
-      })
 })
