@@ -2,17 +2,14 @@ from flask import Flask, render_template, request, jsonify
 
 app = Flask(__name__)
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/')
 def index():
-	if request.method == 'POST':
-		print(request.url())
 	return render_template("index.html")
 
-@app.route('/input', methods=['GET', 'POST'])
+@app.route('/ask')
 def input():
-	if request.method == 'POST':
-		print(request.args.get('text_output'))
-	return ''
+	print(request.args.get('question'))
+	return jsonify(resultat='thierno et ihsan vous saluent')
 
 
 #if __name__ == "__main__":
