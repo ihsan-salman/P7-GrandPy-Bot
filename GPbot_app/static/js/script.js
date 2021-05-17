@@ -11,6 +11,11 @@ button.addEventListener("click", (event) =>{
     .then(function(data){
       console.log(data);
       let text_output = document.getElementById('text_output');
-      text_output.innerHTML += data.resultat
+      text_output.innerHTML += text_input.value + '</br>';
     });
+  fetch('/answer')
+    .then(function(data){
+      console.log(data);
+      let answer = document.getElementById('answer');
+    })
 })

@@ -11,6 +11,9 @@ def input():
 	print(request.args.get('question'))
 	return jsonify(resultat='thierno et ihsan vous saluent')
 
+@app.route('/answer')
+def return_answer():
+	return jsonify(ihsan='gngn')
 
 #if __name__ == "__main__":
 #   app.run()

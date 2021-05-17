@@ -9,6 +9,7 @@ body
 	font-family:'Josefin Sans', sans-serif;
 	background-color: #212121;
 	width:auto;
+	width: 100%;
 }
 
 header 
@@ -34,11 +35,13 @@ header
 #discussion
 {
 	border: solid;
-	height: 200px;
 	width: 60%;
 	margin-left: 100px;
 	margin-right: auto;
 	background-color: white;
+	min-height: 200px;
+	max-height: 400px;
+	overflow: scroll;
 }
 
 h1 
@@ -95,7 +98,7 @@ textarea
 button
 {
 	height: 20px;
-	width: 40px;
+	width: 70px;
 	margin-top: 5px;
 }
 
@@ -114,13 +117,13 @@ li
 
 #button
 {
-	background-color: black;
+	background-color: white;
 }
 
 #text_output
 {
 	background-color: #0099ff;
-	text-align: right;
+	text-align: left;
 	margin-top: -7px;
 	margin-right: 10px;
 	border-radius: 15px;
