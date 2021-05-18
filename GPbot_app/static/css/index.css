@@ -39,7 +39,7 @@ header
 	margin-left: 100px;
 	margin-right: auto;
 	background-color: white;
-	min-height: 200px;
+	min-height: 400px;
 	max-height: 400px;
 	overflow: scroll;
 }
@@ -123,14 +123,12 @@ li
 #text_output
 {
 	background-color: #0099ff;
-	text-align: left;
-	margin-top: -7px;
-	margin-right: 10px;
+	width: 45%;
+	text-align: right;
 	border-radius: 15px;
-	margin-left: 300px;
-	padding-right: 5px;
-	padding-left: 5px;
-
+	padding-right: 20px;
+	padding-left: 7px;
+	margin-left: 50%;
 }
 
 #answer
@@ -146,9 +144,5 @@ li
 {
 	margin-top: 10px;
 	margin-left: 100px;
-}
-
-.gngn
-{
-	width: 300px;
+	width: 40%;
 }

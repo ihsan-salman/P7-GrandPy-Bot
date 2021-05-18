@@ -1,5 +1,7 @@
 
-let button = document.getElementById('button')
+let button = document.getElementById('button');
+let an = document.createElement('p');
+an.id = 'an';
 
 button.addEventListener("click", (event) =>{
   event.preventDefault();
@@ -14,8 +16,12 @@ button.addEventListener("click", (event) =>{
       text_output.innerHTML += text_input.value + '</br>';
     });
   fetch('/answer')
+    .then(function(response){
+      return response.json();
+    })
     .then(function(data){
       console.log(data);
       let answer = document.getElementById('answer');
-    })
+      document.getElementById('an').appendChild(an);
+    });
 })
