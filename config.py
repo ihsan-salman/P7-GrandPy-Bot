@@ -1,1 +1,1 @@
-SECRET_KEY = "nnd*rkl$b3v@hx-1jl533$j(rbpk(2m54!d=9xj*jb9fjhq&!8"
+API_KEY = "AIzaSyCspeOg3PrXf6em3gjyJ72vLrIa101xjGU"

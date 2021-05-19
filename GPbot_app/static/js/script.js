@@ -14,14 +14,6 @@ button.addEventListener("click", (event) =>{
       console.log(data);
       let text_output = document.getElementById('text_output');
       text_output.innerHTML += text_input.value + '</br>';
-    });
-  fetch('/answer')
-    .then(function(response){
-      return response.json();
-    })
-    .then(function(data){
-      console.log(data);
-      let answer = document.getElementById('answer');
-      document.getElementById('an').appendChild(an);
+      document.body.appendChild(an);
     });
 })
