@@ -1,7 +1,5 @@
 
 let button = document.getElementById('button');
-let an = document.createElement('p');
-an.id = 'an';
 
 button.addEventListener("click", (event) =>{
   event.preventDefault();
@@ -13,7 +11,10 @@ button.addEventListener("click", (event) =>{
     .then(function(data){
       console.log(data);
       let text_output = document.getElementById('text_output');
+      let answer = document.getElementById('answer')
+      wiki = data.wiki;
+      console.log(wiki);
       text_output.innerHTML += text_input.value + '</br>';
-      document.body.appendChild(an);
+      //answer.innerHTML += '</br>' + wiki;
     });
 })
