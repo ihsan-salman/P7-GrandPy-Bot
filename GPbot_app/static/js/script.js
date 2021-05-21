@@ -12,9 +12,11 @@ button.addEventListener("click", (event) =>{
       console.log(data);
       let text_output = document.getElementById('text_output');
       let answer = document.getElementById('answer')
+      let img = document.getElementById('img')
       wiki = data.wiki;
       console.log(wiki);
-      text_output.innerHTML += text_input.value + '</br>';
-      //answer.innerHTML += '</br>' + wiki;
+      text_output.innerHTML += '</p>' + '<p id="text_output">' + text_input.value + '</p>';
+      answer.innerHTML += '</p>' + '<p id="answer">' + wiki + '</p>' + '</br>';
+      img.src = data.img_url;
     });
 })
