@@ -1,8 +1,11 @@
+﻿'''!/usr/bin/python3
+   -*- coding: Utf-8 -'''
+
+
 from flask import request
 import googlemaps
 import wikipedia
 import pprint
-import GPbot_app.funct as function
 from config import API_KEY, STOPWORDS
 
 def parse(input_sentence):
@@ -38,7 +41,10 @@ def gmap_adress(parsed_info):
 
 def gmap_img(adress):
     # Base url
-    BASE_URL = "https://maps.googleapis.com/maps/api/staticmap?"
+    base_url = "https://maps.googleapis.com/maps/api/staticmap?"
     # Updated url
-    url = BASE_URL + "center=" + adress + "&zoom=10&size=300x300&key=" + API_KEY
+    url = base_url + "center=" + adress + "&zoom=13&size=300x300&key=" + API_KEY
     return url
+
+gp_sentences = ["Bien sûr mon poussin ! La voici : ",
+                "Mais t'ai-je déjà raconté l'histoire de ce quartier qui m'a vu en culottes courtes ?"]
