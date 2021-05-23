@@ -4,7 +4,7 @@
 
 from flask import Flask, render_template, request, jsonify
 
-import GPbot_app.funct as function
+import GPbot_app.helper as helper
 
 
 app = Flask(__name__)
@@ -15,19 +15,18 @@ def index():
 
 @app.route('/ask')
 def input():
-    # Init grandpy sentences
-    gp_sentences = function.gp_sentences
     # Parse the question input to keep the important information
     question = request.args.get('question')
-    parsed_question = function.parse(question)
+    parsed_question = helper.parse(question)
+    print(parsed_question)
     #
-    geocode_adress = function.gmap_adress(parsed_question)
+    geocode_adress = helper.gmap_adress(parsed_question)
     print(geocode_adress)
     # Return 2 sentences of wiki about the information
-    wiki_summary = gp_sentences[1] + function.wiki_info(geocode_adress)
+    wiki_summary = helper.wiki_info(geocode_adress)
     print(wiki_summary)
     # Base url
-    google_map_url = function.gmap_link(geocode_adress)
+    google_map_url = helper.gmap_link(geocode_adress)
     print(google_map_url)
     # Return json information for js
     return jsonify(wiki=wiki_summary, adress=geocode_adress,

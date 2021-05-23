@@ -42,6 +42,7 @@ header
 	min-height: 400px;
 	max-height: 400px;
 	overflow: scroll;
+	float: left;
 }
 
 h1 
