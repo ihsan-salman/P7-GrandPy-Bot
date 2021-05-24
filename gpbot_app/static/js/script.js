@@ -1,6 +1,6 @@
 let button = document.getElementById('button');
 let papy_sentences = ["Bien sûr mon poussin ! La voici : ",
-                      "Mais t'ai-je déjà raconté l'histoire de ce quartier qui m'a vu en culottes courtes ?"]
+                      "Laisse moi te donner plus de détails sur ta demande! "]
 
 button.addEventListener("click", (event) =>{
   event.preventDefault();

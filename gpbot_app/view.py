@@ -4,26 +4,31 @@
 
 from flask import Flask, render_template, request, jsonify
 
-import GPbot_app.helper as helper
+import gpbot_app.helper as helper
 
 
-app = Flask(__name__)
+APP = Flask(__name__)
 
-@app.route('/')
+
+@APP.route('/')
 def index():
-	return render_template("index.html")
+    '''Return the html page code'''
+    return render_template("index.html")
 
-@app.route('/ask')
-def input():
+
+@APP.route('/ask')
+def give_info():
+    '''Return a wikipedia summary, a gmap adress and and
+       and url for an image of the wished'''
     # Parse the question input to keep the important information
     question = request.args.get('question')
     parsed_question = helper.parse(question)
     print(parsed_question)
-    #
+    # return the corresponding adress of the parsed information
     geocode_adress = helper.gmap_adress(parsed_question)
     print(geocode_adress)
     # Return 2 sentences of wiki about the information
-    wiki_summary = helper.wiki_info(geocode_adress)
+    wiki_summary = helper.wiki_info(parsed_question)
     print(wiki_summary)
     # Base url
     google_map_url = helper.gmap_link(geocode_adress)
@@ -32,5 +37,6 @@ def input():
     return jsonify(wiki=wiki_summary, adress=geocode_adress,
                    img_url=google_map_url)
 
+
 if __name__ == "__main__":
-    app.run()
+    APP.run()

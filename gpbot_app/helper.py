@@ -2,45 +2,53 @@
    -*- coding: Utf-8 -'''
 
 
-from flask import request
 import googlemaps
 import wikipedia
-import pprint
 from config import API_KEY
 
+
 def parse(question):
-	# Parse the question input to keep the important information
+    '''Parse the question input to keep the important information'''
     parsed_word = []
     question_parse = question.split()
     for word in question_parse:
-        if word not in STOPWORDS and word not in ('?', 'informations', '!'):
+        if word not in STOPWORDS and word not in ('?', '!'):
             parsed_word.append(word)
     parsed_question = ' '.join(parsed_word)
     return parsed_question
 
+
 def wiki_info(parsed_info):
+    '''Return 2 sentences of wikipedia about the information'''
+    # Set wikipedia language to french
     wikipedia.set_lang("fr")
-    # Return 2 sentences of wiki about the information
     try:
         return wikipedia.summary(parsed_info, sentences=2)
     except wikipedia.exceptions.WikipediaException:
         print('rentrez une recherche valide')
 
+
 def gmap_adress(parsed_info):
+    '''Return the adress of the parsed information'''
+    # Init google maps with the API KEY
     gmaps = googlemaps.Client(key=API_KEY)
-    # Return the adress of the input information
     try:
         geocode_result = gmaps.geocode(parsed_info)
         return geocode_result[0]['formatted_address']
     except googlemaps.exceptions.HTTPError:
         print('rentrez une adresse valide')
 
+
 def gmap_link(adress):
+    '''Return the corresponding url for the google maps places api images'''
     # Base url
     base_url = "https://maps.googleapis.com/maps/api/staticmap?"
     # Updated url
-    google_map_url = base_url + "center=" + adress + "&zoom=13&size=300x300&key=" + API_KEY
+    google_map_url_1 = base_url + "center=" + adress
+    google_map_url_2 = "&zoom=13&size=300x300&key=" + API_KEY
+    google_map_url = google_map_url_1 + google_map_url_2
     return google_map_url
+
 
 STOPWORDS = ["a", "abord", "absolument", "afin", "ah", "ai", "aie", "ailleurs",
              "ainsi", "ait", "allaient", "allo", "allons", "allô", "alors",
@@ -50,7 +58,8 @@ STOPWORDS = ["a", "abord", "absolument", "afin", "ah", "ai", "aie", "ailleurs",
              "auront", "aussi", "autre", "autrefois", "autrement", "autres",
              "autrui", "aux", "auxquelles", "auxquels", "avaient", "avais",
              "avait", "avant", "avec", "avoir", "avons", "ayant", "b", "bah",
-             "bas", "basee", "bat", "beau", "beaucoup", "bien", "bigre", "boum",
+             "bas", "basee", "bat", "beau", "beaucoup", "bien", "bigre",
+             "boum",
              "bravo", "brrr", "c", "car", "ce", "ceci", "cela", "celle",
              "celle-ci", "celle-là", "celles", "celles-ci", "celles-là",
              "celui", "celui-ci", "celui-là", "cent", "cependant", "certain",
@@ -63,7 +72,8 @@ STOPWORDS = ["a", "abord", "absolument", "afin", "ah", "ai", "aie", "ailleurs",
              "contre", "couic", "crac", "d", "da", "dans", "de", "debout",
              "dedans", "dehors", "deja", "delà", "depuis", "dernier",
              "derniere", "derriere", "derrière", "des", "desormais",
-             "desquelles", "desquels", "dessous", "dessus", "deux", "deuxième",
+             "desquelles", "desquels", "dessous", "dessus", "deux",
+             "deuxième",
              "deuxièmement", "devant", "devers", "devra", "different",
              "differentes", "differents", "différent", "différente",
              "différentes", "différents", "dire", "directe", "directement",
@@ -76,14 +86,15 @@ STOPWORDS = ["a", "abord", "absolument", "afin", "ah", "ai", "aie", "ailleurs",
              "environ", "es", "est", "et", "etant", "etc", "etre", "eu", "euh",
              "eux", "eux-mêmes", "exactement", "excepté", "extenso",
              "exterieur", "f", "fais", "faisaient", "faisant", "fait", "façon",
-             "feront", "fi", "flac", "floc", "font", "g", "gens", "grandpy",
+             "feront", "fi", "flac", "floc", "font", "g", "gens", "grandpy,",
              "h", "ha", "hein", "hem", "hep", "hey", "hi", "ho", "holà",
              "hop", "hormis", "hors", "hou", "houp", "hue", "hui", "huit",
              "huitième", "hum", "hurrah", "hé", "hélas", "i", "il", "ils",
              "importe", "information", "j", "je", "jusqu", "jusque", "juste",
              "k", "l", "la", "laisser", "laquelle", "las", "le", "lequel",
              "les", "lesquelles", "lesquels", "leur", "leurs", "longtemps",
-             "lors", "lorsque", "lui", "lui-meme", "lui-même", "là", "lès", "m",
+             "lors", "lorsque", "lui", "lui-meme", "lui-même", "là", "lès",
+             "m",
              "ma", "maint", "maintenant", "mais", "malgre", "malgré",
              "maximale", "me", "meme", "memes", "merci", "mes", "mien",
              "mienne", "miennes", "miens", "mille", "mince", "minimale", "moi",
@@ -113,7 +124,8 @@ STOPWORDS = ["a", "abord", "absolument", "afin", "ah", "ai", "aie", "ailleurs",
              "quoique", "r", "rare", "rarement", "rares", "relative",
              "relativement", "remarquable", "rend", "rendre", "restant",
              "reste", "restent", "restrictif", "retour", "revoici", "revoilà",
-             "rien", "s", "sa", "sacrebleu", "sait", "sans", "sapristi", "sauf",
+             "rien", "s", "sa", "sacrebleu", "sait", "sans", "sapristi",
+             "sauf",
              "se", "sein", "seize", "selon", "semblable", "semblaient",
              "semble", "semblent", "sent", "sept", "septième", "sera",
              "seraient", "serait", "seront", "ses", "seul", "seule",
@@ -133,7 +145,8 @@ STOPWORDS = ["a", "abord", "absolument", "afin", "ah", "ai", "aie", "ailleurs",
              "unique", "uniques", "uns", "v", "va", "vais", "vas", "vers",
              "via", "vif", "vifs", "vingt", "vivat", "vive", "vives", "vlan",
              "voici", "voilà", "vont", "vos", "votre", "vous", "vous-mêmes",
-             "vu", "vé", "vôtre", "vôtres", "w", "x", "y", "z", "zut", "à", "â",
-             "ça", "ès", "étaient", "étais", "était", "étant", "été", "être",
-             "ô", "situe", 'donne', 'infos', "l'adresse", "Est", "connais",
-             "informations", "Est-ce", "GrandPy", "papy,"]
+             "vu", "vé", "vôtre", "vôtres", "w", "x", "y", "z", "zut", "à",
+             "â", "ça", "ès", "étaient", "étais", "était", "étant", "été",
+             "être", "ô", "situe", 'donne', 'infos', "l'adresse", "Est",
+             "connais", "informations", "Est-ce", "GrandPy", "papy,",
+             "grandpy", "adresse"]

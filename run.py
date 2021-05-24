@@ -2,7 +2,7 @@
    -*- coding: Utf-8 -'''
 
 
-from GPbot_app import app
+from gpbot_app import APP
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    APP.run(debug=True)
