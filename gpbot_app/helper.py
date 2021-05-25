@@ -5,7 +5,7 @@
 import googlemaps
 import wikipedia
 from config import API_KEY
-
+import pprint
 
 def parse(question):
     '''Parse the question input to keep the important information'''
