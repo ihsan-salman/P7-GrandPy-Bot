@@ -1,6 +1,7 @@
 let button = document.getElementById('button');
 let papy_sentences = ["Bien sûr mon poussin ! La voici : ",
-                      "Laisse moi te donner plus de détails sur ta demande! "]
+                      "Laisse moi te donner plus de détails sur ta demande! ",
+                      "Mes données ne trouvent pas d'information sur cette demande :("]
 
 button.addEventListener("click", (event) =>{
   event.preventDefault();
@@ -14,7 +15,6 @@ button.addEventListener("click", (event) =>{
     .then(function(data){
       console.log(data);
       wiki = data.wiki;
-      console.log(wiki);
       discussion.innerHTML += '<div>' + '<p id="answer">' + papy_sentences[0] + data.adress + '</p>' + '<img src="' + data.img_url + '" id="img_gmap">' + '</div>' + '<p id="answer">' + papy_sentences[1] + wiki + '</p>';
     });
 })
