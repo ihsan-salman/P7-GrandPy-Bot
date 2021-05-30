@@ -2,10 +2,10 @@
    -*- coding: Utf-8 -'''
 
 
-import googlemaps
 import wikipedia
+import googlemaps
 from config import API_KEY
-import pprint
+
 
 def parse(question):
     '''Parse the question input to keep the important information'''
@@ -59,7 +59,7 @@ STOPWORDS = ["a", "abord", "absolument", "afin", "ah", "ai", "aie", "ailleurs",
              "autrui", "aux", "auxquelles", "auxquels", "avaient", "avais",
              "avait", "avant", "avec", "avoir", "avons", "ayant", "b", "bah",
              "bas", "basee", "bat", "beau", "beaucoup", "bien", "bigre",
-             "boum",
+             "boum", "voudrais", "savoir",
              "bravo", "brrr", "c", "car", "ce", "ceci", "cela", "celle",
              "celle-ci", "celle-là", "celles", "celles-ci", "celles-là",
              "celui", "celui-ci", "celui-là", "cent", "cependant", "certain",
