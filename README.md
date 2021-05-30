@@ -4,6 +4,9 @@ Need an adress about a place ?
 Or an information about it ?  
 Well GrandPy is here to help to find what you want !!  
 
+Please be sure to ask a good question without mistakes because Grandpy is old and he can give some bad informations.  
+if you aren't sure, you can try on [Wikipedia](https://fr.wikipedia.org/) or on [Google Maps](https://www.google.fr/maps).
+
 #  Installation and requierement 
 
 first of all, download [Python](https://www.python.org/) by going in the official website and choose the version you want ([Python download](https://www.python.org/downloads/)).
