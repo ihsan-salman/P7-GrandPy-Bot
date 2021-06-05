@@ -2,6 +2,7 @@
    -*- coding: Utf-8 -'''
 
 
+import os
 from gpbot_app import APP
 
 if __name__ == '__main__':
