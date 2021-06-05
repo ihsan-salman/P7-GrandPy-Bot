@@ -38,8 +38,5 @@ pip install -r requirements.txt       # for windows/mac
 
 # How to use the program
 
-To start the program, enter the following command in the terminal:
-```bash
-python3 run.py
-```
+To start the program, go to this [website](grandpy-bot-flask.herokuapp.com)
 
