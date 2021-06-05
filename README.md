@@ -38,5 +38,7 @@ pip install -r requirements.txt       # for windows/mac
 
 # How to use the program
 
-To start the program, go to this [website](https://grandpy-bot-flask.herokuapp.com/)
-
+To start the program, go to this website:
+```bash
+https://grandpy-bot-flask.herokuapp.com/
+```
