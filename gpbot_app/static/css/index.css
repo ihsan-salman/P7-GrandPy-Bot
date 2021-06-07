@@ -1,4 +1,4 @@
-@media all
+@media screen and (min-width: 768px)
 {
 	body
 	{
@@ -153,5 +153,16 @@
 	#img_gmap
 	{
 		margin-left: 10px;
+	}
+}
+@media screen and (device-aspect-ratio: 375/812)
+{
+	p
+	{
+		font-size: 50px
+	}
+	#top_message
+	{
+		font-size: 40px
 	}
 }
