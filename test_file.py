@@ -4,51 +4,90 @@
 
 import json
 import gpbot_app.helper as helper
-import pytest
 
 
 def test_parsed():
     '''test the parsed information'''
     parsed_info = helper.parse('la tour eiffel')
-    print(parsed_info)
     assert parsed_info == 'tour eiffel'
 
 
-@pytest.fixture
-def test_mock_requests_get():
-    mock = mocker.patch("requests.get")
-    mock.return_value.__enter__.return_value.json.return_value = {
-        "title": "Lorem Ipsum",
-        "extract": "Lorem ipsum dolor sit amet",
-    }
-    print(mock)
-
-
-def test_wiki_response():
+def test_wiki_response(monkeypatch):
     '''test the wikipedia sentences with a parsed infomation'''
-    wiki_info = helper.wiki_info(helper.parse('la tour eiffel'))
-    with open('gpbot_app/json/wiki.json') as json_data:
-        data_dict = json.load(json_data)
-    assert wiki_info == data_dict[0]["wiki_info"]
+    result = {"La Liberté éclairant le monde, (en anglais : Liberty Enlightening the World), ou simplement Liberté, plus connue sous le nom de statue de la Liberté (Statue of Liberty), est l'un des monuments les plus célèbres des États-Unis. Cette statue monumentale est située à New York, sur la Liberty Island, au sud de Manhattan, à l'embouchure de l'Hudson et à proximité d'Ellis Island."}
+
+    def mockreturn(*param):
+        return result
+
+    monkeypatch.setattr(
+        "gpbot_app.helper.wiki_info", mockreturn
+    )
+
+    assert helper.wiki_info("statue liberté") == result
 
 
-def test_gmap_link():
+def test_gmap_link(monkeypatch):
     '''test the gmap link with an adress'''
-    gmap_link = helper.gmap_link(
-        helper.gmap_adress(helper.parse('la tour eiffel')))
-    with open('gpbot_app/json/gmap_link.json') as json_data:
-        data_dict = json.load(json_data)
-    assert gmap_link == data_dict[0]["gmap_link"]
+    result = {"https://maps.googleapis.com/maps/api/staticmap?center=Statue%20of%20Liberty%20National%20Monument,%20New%20York,%20NY%2010004,%20USA&zoom=13&size=300x300&key=AIzaSyD2PvH-FLa3KhGyY7Z02VLMG-J8al41JrI"}
+
+    def mockreturn(*param):
+        return result
+
+    monkeypatch.setattr(
+        "gpbot_app.helper.gmap_link", mockreturn
+    )
+    assert helper.gmap_link("statue liberté") == result
 
 
-def test_ask_view():
+def test_gmap_adress(monkeypatch):
+    """test the gmap adress with an parsed information"""
+    result = {"Statue of Liberty National Monument, New York, NY 10004, USA"}
+
+    def mockreturn(*param):
+        return result
+
+    monkeypatch.setattr(
+        "gpbot_app.helper.gmap_adress", mockreturn
+    )
+
+    assert helper.gmap_adress("statue liberté") == result
+
+def test_ask_view(monkeypatch):
     '''test the value return by the ask view'''
-    parsed_info = helper.parse('la tour eiffel')
-    gmap_adress = helper.gmap_adress(parsed_info)
-    wiki_info = helper.wiki_info(parsed_info)
-    gmap_link = helper.gmap_link(gmap_adress)
+    result = {"parsed_info" : "statue liberté", 
+    "gmap_adress" : "Statue of Liberty National Monument, New York, NY 10004, USA",
+    "wiki_info" : "La Liberté éclairant le monde, (en anglais : Liberty Enlightening the World), ou simplement Liberté, plus connue sous le nom de statue de la Liberté (Statue of Liberty), est l'un des monuments les plus célèbres des États-Unis. Cette statue monumentale est située à New York, sur la Liberty Island, au sud de Manhattan, à l'embouchure de l'Hudson et à proximité d'Ellis Island.",
+    "gmap_link" : "https://maps.googleapis.com/maps/api/staticmap?center=Statue%20of%20Liberty%20National%20Monument,%20New%20York,%20NY%2010004,%20USA&zoom=13&size=300x300&key=AIzaSyD2PvH-FLa3KhGyY7Z02VLMG-J8al41JrI"}
+    
+    def mockreturn1(*param):
+        return result["parsed_info"]
+
+    def mockreturn2(*param):
+        return result["gmap_adress"]
+
+    def mockreturn3(*param):
+        return result["wiki_info"]
+
+    def mockreturn4(*param):
+        return result["gmap_link"]
+
+    monkeypatch.setattr(
+        "gpbot_app.helper.parse", mockreturn1
+    )
+    monkeypatch.setattr(
+        "gpbot_app.helper.gmap_adress", mockreturn2
+    )
+    monkeypatch.setattr(
+        "gpbot_app.helper.wiki_info", mockreturn3
+    )
+    monkeypatch.setattr(
+        "gpbot_app.helper.gmap_link", mockreturn4
+    )
+
+    parsed_info = helper.parse('statue liberté')
+    gmap_adress = helper.gmap_adress('statue liberté')
+    wiki_info = helper.wiki_info('statue liberté')
+    gmap_link = helper.gmap_link('statue liberté')
     json_info = {"parsed_info": parsed_info, "gmap_adress": gmap_adress,
                  "wiki_info": wiki_info, "gmap_link": gmap_link}
-    with open('gpbot_app/json/view.json') as json_data:
-        data_dict = json.load(json_data)
-    assert json_info == data_dict[0]
+    assert json_info == result
