@@ -2,7 +2,6 @@
    -*- coding: Utf-8 -'''
 
 
-import json
 import gpbot_app.helper as helper
 
 
@@ -14,7 +13,13 @@ def test_parsed():
 
 def test_wiki_response(monkeypatch):
     '''test the wikipedia sentences with a parsed infomation'''
-    result = {"La Liberté éclairant le monde, (en anglais : Liberty Enlightening the World), ou simplement Liberté, plus connue sous le nom de statue de la Liberté (Statue of Liberty), est l'un des monuments les plus célèbres des États-Unis. Cette statue monumentale est située à New York, sur la Liberty Island, au sud de Manhattan, à l'embouchure de l'Hudson et à proximité d'Ellis Island."}
+    result = {"La Liberté éclairant le monde, (en anglais : Liberty Enligh"
+              "tening the World), ou simplement Liberté, plus connue sous"
+              "le nom de statue de la Liberté (Statue of Liberty), est l'"
+              "un des monuments les plus célèbres des États-Unis. Cette s"
+              "tatue monumentale est située à New York, sur la Liberty Is"
+              "land, au sud de Manhattan, à l'embouchure de l'Hudson et à "
+              "proximité d'Ellis Island."}
 
     def mockreturn(*param):
         return result
@@ -28,7 +33,10 @@ def test_wiki_response(monkeypatch):
 
 def test_gmap_link(monkeypatch):
     '''test the gmap link with an adress'''
-    result = {"https://maps.googleapis.com/maps/api/staticmap?center=Statue%20of%20Liberty%20National%20Monument,%20New%20York,%20NY%2010004,%20USA&zoom=13&size=300x300&key=AIzaSyD2PvH-FLa3KhGyY7Z02VLMG-J8al41JrI"}
+    result = {"https://maps.googleapis.com/maps/api/staticmap?center=Statue"
+              "%20of%20Liberty%20National%20Monument,%20New%20York,%20NY%20"
+              "10004,%20USA&zoom=13&size=300x300&key=AIzaSyD2PvH-FLa3KhGyY7"
+              "Z02VLMG-J8al41JrI"}
 
     def mockreturn(*param):
         return result
@@ -52,13 +60,24 @@ def test_gmap_adress(monkeypatch):
 
     assert helper.gmap_adress("statue liberté") == result
 
+
 def test_ask_view(monkeypatch):
     '''test the value return by the ask view'''
-    result = {"parsed_info" : "statue liberté", 
-    "gmap_adress" : "Statue of Liberty National Monument, New York, NY 10004, USA",
-    "wiki_info" : "La Liberté éclairant le monde, (en anglais : Liberty Enlightening the World), ou simplement Liberté, plus connue sous le nom de statue de la Liberté (Statue of Liberty), est l'un des monuments les plus célèbres des États-Unis. Cette statue monumentale est située à New York, sur la Liberty Island, au sud de Manhattan, à l'embouchure de l'Hudson et à proximité d'Ellis Island.",
-    "gmap_link" : "https://maps.googleapis.com/maps/api/staticmap?center=Statue%20of%20Liberty%20National%20Monument,%20New%20York,%20NY%2010004,%20USA&zoom=13&size=300x300&key=AIzaSyD2PvH-FLa3KhGyY7Z02VLMG-J8al41JrI"}
-    
+    result = {"parsed_info": "statue liberté",
+              "gmap_adress": "Statue of Liberty National Monument, New Yor"
+              "k, NY 10004, USA",
+              "wiki_info": "La Liberté éclairant le monde, (en anglais : L"
+              "iberty Enlightening the World), ou simplement Liberté, plus"
+              " connue sous le nom de statue de la Liberté (Statue of Libe"
+              "rty), est l'un des monuments les plus célèbres des États-Un"
+              "is. Cette statue monumentale est située à New York, sur la"
+              " Liberty Island, au sud de Manhattan, à l'embouchure de l'"
+              "Hudson et à proximité d'Ellis Island.",
+              "gmap_link": "https://maps.googleapis.com/maps/api/staticma"
+              "p?center=Statue%20of%20Liberty%20National%20Monument,%20New"
+              "%20York,%20NY%2010004,%20USA&zoom=13&size=300x300&key=AIzaS"
+              "yD2PvH-FLa3KhGyY7Z02VLMG-J8al41JrI"}
+
     def mockreturn1(*param):
         return result["parsed_info"]
 

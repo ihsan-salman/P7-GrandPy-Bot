@@ -154,6 +154,10 @@
 	{
 		margin-left: 10px;
 	}
+	#footer_img
+	{
+		width: 32px;
+	}
 }
 @media screen and (device-aspect-ratio: 375/812), 
 (device-aspect-ratio: 414/896), 
