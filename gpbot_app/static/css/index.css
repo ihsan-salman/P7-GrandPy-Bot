@@ -1,4 +1,4 @@
-@media screen and (min-width: 768px)
+@media all
 {
 	body
 	{
@@ -155,14 +155,53 @@
 		margin-left: 10px;
 	}
 }
-@media screen and (device-aspect-ratio: 375/812)
+@media screen and (device-aspect-ratio: 375/812), 
+(device-aspect-ratio: 414/896), 
+(device-aspect-ratio: 414/736),
+(device-aspect-ratio: 375/667),
+(device-aspect-ratio: 360/740),
 {
+	h1
+	{
+		font-size: 50px;
+	}
 	p
 	{
-		font-size: 50px
+		font-size: 35px
+	}
+	h2
+	{
+		font-size: 45px;
 	}
 	#top_message
 	{
 		font-size: 40px
+	}
+	#discussion
+	{
+		margin-left: 15px;
+		width: 95%;
+	}
+	#img_gmap
+	{
+		width: 70%;
+	}
+	#text_input
+	{
+		width: 60%;
+		font-size: 35px;
+	}
+	button
+	{
+		width: 10%;
+		height: 30px;
+	}
+	#button
+	{
+		font-size: 25px;
+	}
+	#footer_img
+	{
+		width: 64px;
 	}
 }

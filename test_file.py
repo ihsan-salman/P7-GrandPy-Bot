@@ -4,6 +4,7 @@
 
 import json
 import gpbot_app.helper as helper
+import pytest
 
 
 def test_parsed():
@@ -13,12 +14,14 @@ def test_parsed():
     assert parsed_info == 'tour eiffel'
 
 
-def test_gmap_response():
-    '''test the adress function with a parsed information'''
-    gmap_adress = helper.gmap_adress(helper.parse('la tour eiffel'))
-    with open('gpbot_app/json/gmap.json') as json_data:
-        data_dict = json.load(json_data)
-    assert data_dict[0]['formatted_address'] == gmap_adress
+@pytest.fixture
+def test_mock_requests_get():
+    mock = mocker.patch("requests.get")
+    mock.return_value.__enter__.return_value.json.return_value = {
+        "title": "Lorem Ipsum",
+        "extract": "Lorem ipsum dolor sit amet",
+    }
+    print(mock)
 
 
 def test_wiki_response():
